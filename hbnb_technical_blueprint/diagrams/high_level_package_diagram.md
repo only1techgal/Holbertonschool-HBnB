@@ -2,17 +2,17 @@
     classDiagram
     class PresentationLayer {
         <<Interface>>
-        +ServiceAPI
+        +ServiceAPI()
     }
     class BusinessLogicLayer {
-        +User
-        +Place
-        +Review
-        +Amenity
+        +User()
+        +Place()
+        +Review()
+        +Amenity()
 
     }
     class PersistenceLayer {
-        +DatabaseAccess
+        +DatabaseAccess()
     }
     PresentationLayer --> BusinessLogicLayer : Facade Pattern
     BusinessLogicLayer --> PersistenceLayer : Database Operations
