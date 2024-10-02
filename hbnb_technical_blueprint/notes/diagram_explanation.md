@@ -5,4 +5,6 @@
 - **Key Components**:
     - **PresentationLayer**: Acts as an interface for the Service API.
     - **BusinessLogicLayer**: Contains core business entities such as User, Place, Review, and Amenity.
-    - **
+    - **PersistenceLayer**: Responsible for the database access.
+    - **Design Decisions**: The use of the Facade Pattern simplifies interactions between layers, promoting a clean separation of concerns.
+    
