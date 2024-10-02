@@ -1,17 +1,29 @@
 ``` mermaid
 
 sequenceDiagram
-    participant User
-    participant API
-    participant BusinessLogic
-    participant Persistence
+    participant Client
+    participant API_Server
+    participant Database
 
-    User->>API: Create new Place
-    API->>BusinessLogic: Validate input
-    BusinessLogic->>Persistence: Save Place to database
-    Persistence-->>BusinessLogic: Place saved
-    BusinessLogic-->>API: Return success response
-    API-->>User: Place created successfully
+    Client->>API_Server: POST /users/login (Credentials)
+    API_Server->>Database: Validate credentials
+    Database-->>API_Server: Success (User ID)
+    API_Server-->>Client: 200 OK (Auth Token)
+
+    Client->>API_Server: POST /places (Place Data, Auth Token)
+    API_Server->>Database: Insert Place Record (With User ID)
+    Database-->>API_Server: Success (Place ID)
+    API_Server-->>Client: 201 Created (Place ID)
+
+    Client->>API_Server: GET /places/:id (Auth Token)
+    API_Server->>Database: Fetch Place Details (Place ID)
+    Database-->>API_Server: Place Details
+    API_Server-->>Client: 200 OK (Place Details)
+
+    Client->>API_Server: DELETE /places/:id (Auth Token)
+    API_Server->>Database: Delete Place (Place ID)
+    Database-->>API_Server: Success
+    API_Server-->>Client: 204 No Content
 ```
 
 API INTERACTION FLOW.
