@@ -1,3 +1,65 @@
+``` mermaid 
+classDiagram
+    class BaseModel {
+        -id: string
+        -created_at: datetime
+        -updated_at: datetime
+        +save(): void
+        +to_json(): dict
+    }
+
+    class User {
+        -email: string
+        -password: string
+        -name: string
+    }
+
+    class Place {
+        -location: string
+        -price: float
+        -description: string
+    }
+
+    class Review {
+        -rating: int
+        -comments: string
+    }
+
+    class Amenity {
+        -name: string
+    }
+
+    class FileStorage {
+        +all(): dict
+        +save(obj): void
+        +reload(): void
+    }
+
+    BaseModel <|-- User
+    BaseModel <|-- Place
+    BaseModel <|-- Review
+    BaseModel <|-- Amenity
+    FileStorage --> BaseModel : stores
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 BUSINESS LOGIC LAYER Files and Directories
 
 Models directory will contain all classes used for the entire project. 
