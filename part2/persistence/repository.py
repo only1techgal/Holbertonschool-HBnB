@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 
 class Repository(ABC):
-    @abstructmethod
+    
+    @abstractmethod
     def add(self, obj):
         pass
 
@@ -9,7 +10,7 @@ class Repository(ABC):
     def get(self, obj_id):
         pass
 
-    abstructmethod
+    @abstractmethod
     def get_all(self):
         pass
 
@@ -17,11 +18,11 @@ class Repository(ABC):
     def updata(self, obj_id, data):
         pass
 
-    @abstructmethod
+    @abstractmethod
     def delete(self, obj_id):
         pass
 
-    @abstructmethod
+    @abstractmethod
     def get_by_attribute(self, attr_name, attr_value):
         pass
 
