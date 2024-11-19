@@ -1,13 +1,6 @@
-import os
+from app import create_app
 
-class Config:
-    SECRET_KEY = os.getenv('SECRET_KEY', 'sefault_secret_key')
-    DEBUG = False
+app = create_app()
 
-class DevelopmentConfig(Config):
-    DEBUG = True
-
-config = {
-    'development': DevelopmentConfig,
-    'default': DevelopmentConfig
-}
+if __name__ == '__main__':
+    app.run(debug=True)

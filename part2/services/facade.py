@@ -16,8 +16,3 @@ class HBnBFacade:
     def get_place(self, place_id):
          # Logic will be implemented in later tasks
         pass
-
-    #  Placeholder method for fetching a place by ID
-    def get_place(self, place_id):
-        # Logic will be implemented in later tasks
-        pass
